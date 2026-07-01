@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/aeonik/AeonikTRIAL-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/aeonik/AeonikTRIAL-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/aeonik/AeonikTRIAL-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/aeonik/AeonikTRIAL-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-aeonik: 'Aeonik', sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-aeonik);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0000;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  font-family: var(--font-aeonik);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  background-color: black;
+}
+
+/* Por defecto, si el texto es claro (como en modo oscuro), selección blanca/negra */
+::selection {
+    background: white;
+    color: black;
+    text-shadow: none;
+}
+::-moz-selection {
+    background: white;
+    color: black;
+    text-shadow: none;
+}
+
+/* Si el elemento tiene texto blanco, la selección es fondo negro con texto blanco */
+.text-white ::selection,
+.text-white::selection,
+[class*="text-[#"] ::selection,
+[class*="text-[#"]::selection {
+    background: black;
+    color: white;
+}
+.text-white ::-moz-selection,
+.text-white::-moz-selection,
+[class*="text-[#"] ::-moz-selection,
+[class*="text-[#"]::-moz-selection {
+    background: black;
+    color: white;
+}
+
+/* Si el elemento tiene texto negro, la selección es fondo blanco con texto negro */
+.text-black ::selection,
+.text-black::selection {
+    background: white;
+    color: black;
+}
+.text-black ::-moz-selection,
+.text-black::-moz-selection {
+    background: white;
+    color: black;
+}
