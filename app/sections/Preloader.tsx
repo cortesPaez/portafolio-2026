@@ -4,10 +4,12 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useAppStore } from '@/app/store/useAppStore';
 
-const Preloader = () => {
+if (typeof window !== 'undefined') {
 	gsap.registerPlugin(useGSAP);
-	const container = useRef<HTMLDivElement>(null);
+}
 
+const Preloader = () => {
+	const container = useRef<HTMLDivElement>(null);
 	const counterRef = useRef<HTMLDivElement>(null);
 	const setPreloaderFinished = useAppStore((state) => state.setPreloaderFinished);
 
@@ -48,7 +50,7 @@ const Preloader = () => {
 				},
 			});
 		},
-		{ scope: container },
+		{ scope: container, dependencies: [] },
 	);
 
 	return (
