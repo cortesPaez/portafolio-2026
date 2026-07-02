@@ -24,8 +24,8 @@ const Navbar = ({ dictionary }: NavbarProps) => {
 				{/* Mobile: 2 columnas, Desktop: 3 columnas */}
 				<div className="col-span-2 lg:col-span-3 flex justify-end">
 					<button className="flex flex-row gap-[10px] items-center cursor-pointer">
-						<IconWrapper name="arrow-main-button" className="bg-white p-[12px] rounded-full" />
 						<strong className="hidden md:inline text-[24px]">{dictionary.navbar.cta}</strong>
+						<IconWrapper name="arrow-main-button" className="bg-white p-[12px] rounded-full" />
 					</button>
 				</div>
 			</FigmaGrid>
