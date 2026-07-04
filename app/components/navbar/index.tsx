@@ -1,14 +1,15 @@
+'use client';
+
 import { IconWrapper } from '@/app/components/ui/icons';
 import { FigmaGrid } from '@/app/components/FigmaGrid';
-import type { Dictionary } from '@/app/get-dictionary';
+import { useAppStore } from '@/app/store/useAppStore';
 
-interface NavbarProps {
-	dictionary: Dictionary;
-}
+const Navbar = () => {
+	const dictionary = useAppStore((state) => state.dictionary);
+	if (!dictionary) return null;
 
-const Navbar = ({ dictionary }: NavbarProps) => {
 	return (
-		<nav className="relative z-10 w-full">
+		<nav className="sticky top-0 z-50 w-full bg-black/80 backdrop-blur-md border-b border-white/10">
 			<FigmaGrid className="items-center py-[24px]">
 				{/* Mobile: 2 columnas, Desktop: 3 columnas */}
 				<strong className="text-[24px] col-span-2 lg:col-span-3">@ccortesdev</strong>

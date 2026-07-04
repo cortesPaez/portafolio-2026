@@ -1,17 +1,16 @@
-import Navbar from '@/app/components/navbar';
+'use client';
+
 import Image from 'next/image';
-import type { Dictionary } from '@/app/get-dictionary';
 import { FigmaGrid } from '@/app/components/FigmaGrid';
 import { IconWrapper } from '@/app/components/ui/icons';
+import { useAppStore } from '@/app/store/useAppStore';
 
-interface HeroProps {
-	dictionary: Dictionary;
-}
+const Hero = () => {
+	const dictionary = useAppStore((state) => state.dictionary);
+	if (!dictionary) return null;
 
-const Hero = ({ dictionary }: HeroProps) => {
 	return (
-		<section className="relative h-dvh w-full flex flex-col">
-			<Navbar dictionary={dictionary} />
+		<section className="relative min-h-[calc(100dvh-96px)] w-full flex flex-col">
 			<FigmaGrid className="py-[24px] flex-1">
 				<div className="relative col-span-4 md:col-span-8 lg:col-span-12 w-full h-full rounded-3xl overflow-hidden flex flex-col justify-center">
 					<Image
@@ -20,7 +19,7 @@ const Hero = ({ dictionary }: HeroProps) => {
 						fill
 						priority
 						className="object-cover object-center brightness-20"
-						quality={100}
+						quality={75}
 					/>
 					{/* Aquí podrás colocar tus textos, usa relative z-10 para que estén por encima de la imagen */}
 					<div className="relative z-10 p-[32px] flex flex-col items-start h-full w-full">

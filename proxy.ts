@@ -35,6 +35,7 @@ export function proxy(request: NextRequest) {
   if (
     [
       '/img/bg-hero.jpg',
+      '/img/picture.png',
       '/favicon.ico',
       '/fonts', // Add other public assets here as needed
     ].some(
